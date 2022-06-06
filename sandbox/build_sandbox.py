@@ -1,9 +1,16 @@
 import os
+import sys
 
-buildflags = "-out:..\\_bin\\Sandbox.exe -build-mode:exe"
+buildflags = " -out:..\\bin\\Sandbox.exe -build-mode:exe"
 
-print("Building Sandbox...")
+depends = " -collection:engine=../lib"
 
-os.system("odin build src " + buildflags)
+print("=== Building Sandbox... ===")
+
+result = os.system("odin build src" + buildflags + depends)
+
+if result != 0:
+    sys.exit("Sandbox failed to Build!")
+
 
 # input("Press any key to exit...\n")

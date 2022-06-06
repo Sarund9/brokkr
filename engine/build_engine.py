@@ -1,9 +1,14 @@
 import os
+import sys
 
-buildflags = "-out:..\\_bin\\BrokkrEngine.dll -build-mode:dll"
 
-print("Building Engine...")
+buildflags = "-out:..\\bin\\brokkr.dll -build-mode:dll"
 
-os.system("odin build src " + buildflags)
+print("=== Building Engine... ===")
+
+result = os.system("odin build src " + buildflags)
+
+if result != 0:
+    sys.exit("Engine failed to Build!")
 
 # input("Press any key to exit...\n")

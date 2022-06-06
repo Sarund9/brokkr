@@ -1,1 +1,3 @@
-_bin/
+bin/
+*__pycache__*
+lib/
